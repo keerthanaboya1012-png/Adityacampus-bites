@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aditya University Canteens</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍽️%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F5F1;--card:#fff;--ink:#241E12;--mut:#6E6757;--line:#E4E0D4;--gold:#8A6510;--goldl:#F3E8C8;--on:#fff;--ok:#2E7D32;--bad:#C62828;--hbg:#fff;--hink:#241E12;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16130D;--card:#201C13;--ink:#F1ECDD;--mut:#A79F8B;--line:#352F20;--gold:#D9AE48;--goldl:#3A2F14;--on:#1B1405;--ok:#66BB6A;--bad:#EF5350}}
+:root[data-theme="dark"]{--bg:#16130D;--card:#201C13;--ink:#F1ECDD;--mut:#A79F8B;--line:#352F20;--gold:#D9AE48;--goldl:#3A2F14;--on:#1B1405;--ok:#66BB6A;--bad:#EF5350}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 clamp(15px,3.9vw,16px)/1.45 "DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+h1,h2,h3,.brand b{font-family:Sora,"DM Sans",system-ui,sans-serif;margin:0;letter-spacing:-.01em}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+img{max-width:100%}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--hbg);color:var(--hink);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hbg);z-index:30}
+.hd{max-width:1320px;margin:auto;display:flex;align-items:center;gap:10px;padding:8px 12px;min-height:60px}
+.brand{display:flex;align-items:center;gap:8px;min-width:0;flex:1;text-decoration:none;color:inherit}
+.brand img{height:36px;width:auto;display:block}
+.brand b{font-size:.95rem;white-space:nowrap;color:#8A6510}
+.ib{position:relative;min-width:48px;height:48px;border-radius:14px;font-size:1.35rem;display:grid;place-items:center;color:var(--hink)}
+.ib:active{background:#0001}
+.bdg{position:absolute;top:2px;right:0;background:var(--gold);color:var(--on);font:700 .72rem/1 "DM Sans";min-width:20px;height:20px;border-radius:10px;display:grid;place-items:center;padding:0 5px}
+.tn{display:none}
+.tn a{color:var(--hink);text-decoration:none;padding:10px 14px;border-radius:12px;font-weight:500}
+.tn a.on{background:#F3E8C8;color:#6B4D0A}
+/* drawer */
+.sc{position:fixed;inset:0;background:#0007;z-index:40;opacity:0;pointer-events:none;transition:opacity .2s}
+.dr{position:fixed;top:0;bottom:0;left:0;width:min(82vw,320px);background:var(--card);z-index:41;transform:translateX(-100%);transition:transform .25s;padding:calc(16px + env(safe-area-inset-top,0px)) 16px 16px;overflow-y:auto}
+.open .sc{opacity:1;pointer-events:auto}.open .dr{transform:none}
+.dr a{display:flex;gap:12px;align-items:center;min-height:52px;padding:0 12px;border-radius:14px;color:var(--ink);text-decoration:none;font-weight:500}
+.dr a:active{background:var(--goldl)}
+.dr h3{font-size:.95rem;color:var(--mut);margin:18px 12px 6px;font-weight:500}
+/* layout */
+main{max-width:1320px;margin:auto;padding:16px 14px 150px}
+h1{font-size:clamp(1.5rem,6.4vw,2.4rem);line-height:1.15}
+h2{font-size:1.2rem;margin:26px 0 12px}
+.sub{color:var(--mut);margin:6px 0 0}
+.hero{background:var(--gold);color:var(--on);border-radius:24px;padding:22px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.hero p{margin:8px 0 0;opacity:.92}.hero .em{font-size:clamp(3.2rem,16vw,5.5rem);line-height:1}
+.grid{display:grid;gap:12px;grid-template-columns:1fr}
+.cc{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:12px;text-align:left;width:100%;min-height:84px}
+.cc .em,.it .em{flex:none;width:60px;height:60px;border-radius:16px;background:var(--goldl);display:grid;place-items:center;font-size:2rem}
+.cc div,.it div.t{min-width:0;flex:1}
+.cc b,.it b{display:block;overflow-wrap:anywhere}
+.mut{color:var(--mut);font-size:.88rem}
+.open-pill{color:var(--ok);font-weight:700;font-size:.82rem}
+.it{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:12px}
+.vd{display:inline-block;width:12px;height:12px;border:2px solid var(--ok);border-radius:3px;vertical-align:-1px;margin-right:6px;position:relative}
+.vd::after{content:"";position:absolute;inset:2px;border-radius:50%;background:var(--ok)}
+.vd.n{border-color:var(--bad)}.vd.n::after{background:var(--bad)}
+.pr{font-weight:700;margin-top:2px}
+.add{min-width:84px;height:48px;border-radius:14px;border:2px solid var(--gold);color:var(--gold);font-weight:700;background:var(--card)}
+.st{display:flex;align-items:center;background:var(--gold);color:var(--on);border-radius:14px;height:48px}
+.st button{width:46px;height:48px;font-size:1.4rem;color:var(--on)}
+.st b{min-width:22px;text-align:center}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;width:100%;border-radius:16px;background:var(--gold);color:var(--on);font-weight:700;font-size:1.05rem;padding:0 18px}
+.btn.alt{background:var(--card);color:var(--gold);border:2px solid var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{min-height:44px;padding:0 16px;border-radius:22px;border:1px solid var(--line);background:var(--card);font-weight:500}
+.chip.on{background:var(--goldl);border-color:var(--gold);color:var(--gold)}
+.back{min-height:44px;color:var(--gold);font-weight:700;padding:0 4px 0 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:6px 0}
+.tot{font-size:1.15rem;font-weight:700;border-top:1px dashed var(--line);margin-top:8px;padding-top:12px}
+.two{display:grid;gap:16px}
+label{display:block;font-weight:500;margin:12px 0 6px}
+input[type=text],input[type=tel]{width:100%;height:52px;border-radius:14px;border:1px solid var(--line);background:var(--bg);padding:0 14px;font-size:16px}
+.pay{display:flex;align-items:center;gap:12px;min-height:56px;width:100%;border:2px solid var(--line);border-radius:16px;padding:0 14px;margin-top:8px;text-align:left;background:var(--card)}
+.pay.on{border-color:var(--gold);background:var(--goldl)}
+.err{color:var(--bad);font-weight:500;margin-top:10px}
+.tk{text-align:center;border:2px dashed var(--gold);border-radius:22px;padding:18px 12px;background:var(--card)}
+.tk .n{font:700 clamp(2.8rem,15vw,4.5rem)/1 Sora,sans-serif;color:var(--gold);letter-spacing:.04em}
+.st2{display:inline-block;margin-top:8px;padding:4px 14px;border-radius:14px;font-weight:700;font-size:.9rem;background:var(--goldl);color:var(--gold)}
+.st2.rd{background:#2E7D3222;color:var(--ok)}
+.empty{text-align:center;padding:40px 16px}.empty .em{font-size:3.5rem}
+/* floating cart bar + bottom nav */
+.fc{position:fixed;left:12px;right:12px;bottom:calc(68px + env(safe-area-inset-bottom,0px));z-index:15;display:flex;justify-content:space-between;align-items:center;min-height:56px;padding:0 20px;border-radius:18px;background:var(--gold);color:var(--on);font-weight:700;box-shadow:0 8px 24px #0004;max-width:560px;margin:auto}
+.bn{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);background:var(--hbg);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.bn a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#6E6757;text-decoration:none;font-size:.76rem;font-weight:500;position:relative}
+.bn a span{font-size:1.4rem;line-height:1}.bn a.on{color:#8A6510;font-weight:700}
+.bn .bdg{top:6px;right:calc(50% - 26px)}
+.sb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(140px + env(safe-area-inset-bottom,0px));background:#241E12;color:#fff;padding:12px 18px;border-radius:14px;z-index:50;max-width:90vw;text-align:center}
+.ck{position:sticky;bottom:calc(72px + env(safe-area-inset-bottom,0px));padding-top:12px}
+/* tablet */
+@media(min-width:768px){
+ .brand b{font-size:1.1rem}.tn{display:flex;gap:4px}.hm,.bn{display:none}
+ main{padding:24px 24px 110px}.grid{grid-template-columns:repeat(2,1fr);gap:16px}
+ .fc{bottom:20px;left:auto;right:24px;width:340px}.sb{bottom:90px}
+ .two{grid-template-columns:1.2fr 1fr;align-items:start}.ck{position:static;bottom:auto}
+ .hero{padding:32px 36px}
+}
+/* laptop */
+@media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}.hd{padding:8px 24px}}
+/* desktop */
+@media(min-width:1440px){.grid{grid-template-columns:repeat(4,1fr)}main{padding-top:32px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><div class="hd">
+<button class="ib hm" id="mb" aria-label="Open menu">☰</button>
+<a class="brand" href="#home"><img alt="Aditya University" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAABsCAYAAABD069jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAABI/SURBVHhe7Z07cty6Eob73AXMxHIVVyAFspU50Qa0CCtwrLUodiAvQhtwokz2BNIKWOWJyehk9wbGP7fV7m4AfMxD7K+KZXlIAmATP9BsgOA///77738pCIJ3zX/kD0EQvD9C6EGwAELoQbAAQuhBsABC6EGwAELoQbAAQuhBsABC6EGwAELoQbAAQuhBsABC6EGwAELoQbAAQuhBsABC6EGwAELoQbAAQuhBsABC6EGwAELoQbAAQuhBsAD+OfY147rthoiI2ueH3W99+k2yOrskIqJ1+nf14ePu7yBYMgcTevv8QO3P70RJoBc390RJ2BB1v928Ee/qw0eWgk7/+9fub54+BN9c3e72B8FSOIjQucglEHZzdTtZb4yGA3k2n778+TdEHyyEoxL6+c39JOJunx/+ctu77YbWZ5fUbTfU//71RvQh+OC9czTBuObTl0lE3m03u+d6Dlz69dklNVe39PnrD2o+faH253d6+nb9JgYQBO+Nvfbo/Pl7fXapPqNPAXpvAA/C6r25a28dEwSnzN6E/vJ4R/1285eQpChrqDlXc+cluQYhCE6V2YXebTf0+ng3uNeWw2vW0BrgEfacsC1C8MF7Y1ahQzC1QTa4+BD1Kj1Xc2R6aBC04bUhUfYQe/CemE3oL493RBXDZFzcXNgl53ogyt5tN7tHByoUPcqEAF4QnCqTC50H3EpcdU3gnrjHio/31FQo+Pb5gbrtpuh6guAYmVzoL493RSKUEfjc8ZzSPDxqXfMQe3DKTCr0UgHWimxOasoyNOYQBIdmMqGXiJz34jkXfZ/Uij169uDUmEToJSKvEZNEBtQ88Ow9ZGittMdGoDHEHpwKo4Ve0sMNEbkM0pEInGlCRIOw+7syyk4VZS1p3ILgWBgldIji89cfcteOUuEAHD/VEBvSo4oXWErK3KWJQLnefyqQn8aQMnjpcaaYgIRZkRxvAtXTt2v50yDk/bOu2SsLh9cljsxHw7qmIfduCKNeauHDVBrcFc4Zon1+oKdv19RtN3R+c08XyQBjjdAMeIGlubrdHW8duz67pPObe7XizAGfCCSxyjgF/Xbzxw4/v9Pr412R/Y6V9dmlWl97FjvyGCpyL21v35QMFnr7/OBeJBe5J9Zuu6GXx7u/BD41UvA5A3Oxd0ZcYH12Sauzy90z+5xolexQtD+/7+7ZqWHW14x9c/VlKL3xtuXUDBL6zrU1jNalXqDJvHraPj/Qa3rWnUvgEgiekjvl3UCI3eu1L27uZ79ZubTnzl+jT27wvvOdgnPDTffqgtYQeB0dRzt33wwTeoHLnjMC7/G94+aixD0ndpzXa5/f3LtpjMVz28FU+a+Sl4Itx1T5cmQZcmWRx+WOhycmsQRpXWNJvbXO5ZQcM5bqYBwEagXg2sIofLfdUHMEY+kI0OQaplyU/eXxbrbrsQI5EuueaFiBKetRC/ddo8R2NcE4C6sMNdcNrOuX12LlKY+zsM6XWHafiuoe3evNcVGeAXDMXK56rSuJoFpJz946z+vN1a17/lC0/JpPX9QeSTt2KuDZaJRU5GOjtleXeHWco6Wn5Ts3VUJHRbYuskvj1paAIXLrGWkKStxcCRe7JRZUDEvMuGbr/KHUXI9Vtqlorm7NSjr1de8Dqx7DjlZvbDV4Eu1+WJ6AduyU1Ak905v3yR3X6FKArtRF8S7c3afcmBIgds2dA7nA2xy9unY9zdWtamfpHs+Bli9VNkjHgterW/eYHBuUotV/r15NQbHQUQjrIr1GgIh2z8HaRWo0V7f08nj3l3DQympGkcfWsk7jrEMDb+uzy0lvmJYPKqZVSafK2+JQ+c6FVZ9fH+/0Rtap4xL1/JSfZkPtfk9FsdD737/Mi0QBLaO1BVF4jUZ5Lm6ublWvAA2AVcZSmqtb6rcbc+gtJ2bPvZ8Ced2SOfN+j6BxL6GmDmv3gedTms5UFAtda50Ans0t2p/fi76yIkGl5kbrlAUhIXISBuwKZzxx+PGykQGemNFQTIFmc25HrbJMlXcth8p3CjQ7zo2swzSz+14kdK/HbjPP5ujNtQsbCjfGC3OxZGODDzXUGE8eqz17QszyWGKurbavBqsh4Xa0bDo27xxWvqeMrDuSmt6cjEZanr9P971I6JQxhLevzQy31bJmvSkaGTJuxOrDx+pGphHDSDJNcp5TOXPcMM3OWjnmyJujNSRaOU6JxhlRIKMeWGj219KuSXMsRULXbizQWi6A3ryE9vnhr/nT+Ju7hW1aL64VQx/caO3zw+64WmPinM9ff7g9c+NE2Gvz1NDs2qaXcvimuczab1OipV/TmB4r1n0rrcNAqzOI+/BNG+GxPMWxFAndcs1RIG0fGZXVYvXhI/XsfXISbnOXnreRJjcGBPmS3q7qjPJykJ6HJ2YyKjyxgN1QvDxLmaOy0ERlO1asxqo2vjTm3tNMNs4K3asw/e9fqktCBY2AZJ3Gsfnx3MBc5GgUQJ+mM/bsSzAQPnr3Nk27xfaapqzmsG5a7lnc27cP5qgsHrVieK9MYXerzo0hK3RPzOS0gt5wnAXS0ozFL15zeSi5WBAxhN+md6nb9D71axJ/yey8nJhJeB1TUeMJWcxRWXhjK7HqwdLw6koNU6UDskIn5yZ2243Zko8paJMmy1j5AtkAdcqaciv2NlPz6Uv1O++e+w7PQQNxhFqsc85v7s3NalCtstWy844MkVv5LxFZ/yjZR94zvmlY9WAoWaF7laVXxrRB7zQCxCoPJqZoF9YqwbxVcvE/f/1BF+lfVHZp5PMkamzNTG+Xzc0qrbRjbY0RMdZsmqNNQVFsCBpJ2wJttGOpWPZGvbM27d5Z9h5KVuhkPH95DQDwRLVOryk2eCdceXts90ye0mk+fXnTG6MMqOyyUYCbPifWDdFsVoLWa3p29OgHRHD75BVhyxEi/z/avZN1UsOyYe298ygSei0dW7k1R5OmtFIyFISJi29/ft9VOGmQVzEcp/VsLVsnrmPBuNIGYO1E0GWDI7HOs7DKVNJoSNvMzersctB74O8Vqw6UYDXkVn0YQlboXmWVohrKOrnjxIQpg1yyZWyfH2ilPAejwnMXnz8Hrc8uzRcWPMbcyLFYFYFjHSPtMwV4JAr+j6yvoLQB1rTkaa+WrNCHYF20x1q8XCCFyHu1LkXTUdm4CFHh+xR9R6PBn8+l+HNoN2EO4AnxTTZwHk1akIJv5DRS8lhr48Gkz19/mI2KxVpJszYNSnVAprMakI6HTLs0/dH3LnmjcrPuXS3ZpaSevl3TuRKlhvurtexwk7V9OVpjCIeXgbv3Wjm0pYtoxHI93jJRnn1eH+/CvQ2OgqoevbR1KXmmJBZ55+kiqGa1pGhEZB7cRdVETiPc2N4ZXQiCUyArdAgOPRRflMESVA29+IwS0sdzO/KHSNEoyMcD/C7FzF2onqUfBEsiK3SAZ2gEF3I9XEkjADHzgAVc8DbNZEM6fYqW8zFxpIHfyPA64CVQSkc2BmOBLWTellcSBPumWOiUBCMFLis3ORVfg6eHv7kwOXI4TdKy11bhDeD/DXsjTRuzt/Dy4/u65JkgXelxBMEhyQp9fXZpVlqvx/L2ldCw8XUOJsF0Ykz86dv1myBe+/ygDm1gkg4eEzwhUxKs1uhQ2ofr7NMiF7wMslEMgkORjbpDSFoE3YtGY666JjYN5EOO278TlbFfcn5zv2ukSssh4RF+idzH/197/UEwJ9ke3WOtTFgBjfPCh4TPp7ZEvEqi0fZb3gPGzynjgnu0FSvkNGwZ5l4ZGQiCQ5Ht0WnEWLF1Hqd9fqCV+O42nncpDdWt08SBVyNifs7WY+d/r9hnf5BmqWipYD7A07dr99qtfRbcq/G8AT5yID0qPmphnY/rIuV8ax//nVjQVOIdVzriwc/hNpHwmE4O6TGu2AtBGqV2yIFz+XlD8h1LUY9u9ZjrzOydldPjAylyYobgRmrTlFc+5MaPJ/ozMwxl4r+Ts053Dlk24F0XyjoEeDWWTYkdo3k3+D0XcNyloQxTavuw2EdN+ST8fG+TyP3YEBPBuwwaXYrFSI8R51vncjtIZDm8DXD7tcaCpV3ah+OsujeEIqFTQcXWsFotTu5iYBAMoa3F9EkE1uDaW2AaZw05t90K0lHBde0Dq0INgTeglB6LNOYORq6MqalWw9aykRgS8yp2x0xoJ4u1nOKtlJXbVJZxLEVCdyu7sw83utaIbYqiA55Hy5eUYuLmlUqrYLVuUKu8C8/xvANv377RKtQUlNxTr25g3ry2eaDBv0jnvxGPsLsU+ee0hkHDhlr5sSXgXGyy85DX8qZTYvbohVfE6zVlbDeEIqGvna+T4EIsQzVXt+aztQXPhxtKilw+ywEEwcYEw7zeHNeq7ff2HYLeecatRVZUCc9H9rhzIe2s1VEyytOwF0lqOoEx5Hp1mqE3p1KhU8HzdvvzuxpsgcvnnStBay2ByJu0AAVYD/jWtkeuN6fMzfD2HYKpXFMpBi9Neeyh0Ro81Bv08vsAjQuxXn3u3pxqhN4YQ1vEWner12+Ub6jVsuspC5YuGtK4ABjdyiO7f+Dnp+aAu5VDbKHhubs1lRWzCOVWW0e84+V9aFnwTZZ9n3DbyHLM1UkUCx3i0QzLC6e15OsUiJAXVUPHlnIuAYG72jzbzIcavf3IS7PBIYDdyejRhmC57zxtzU2WtGx1Xr5ZQT7QiRmR/LGwEV/l4dfPQV585aF9Ai0Ri/6D0vpdS7HQCT2zUlkaNjfdMhouQDu/lFojNMZ3xC1e0qedrXNQdnO/0wgcioa5iu1Ir4qURkxLTx4zJa9pqEwbLtXuC+qmdV/a9PKUdh1zopbVKOMUVAkdN1AzCgzqCfni5n7XEteiGWZKSqasekLONQKHhJepNjCqwXts9MC1vZIVdS85V7LKrF+HBh9R8kZZ72BInRwD79UpiXzItZdSJXRKRrOMgoJa+2mE2OfsJRBE9AzdZr7x7jUCQ7DiIUOQLqzsCWvhNpCNvhTQ1GjDWlZsSAON+YVYD39Ke5cyZ52WVAsdhbOE2jiBN/w2VOxzAJF7Ufs2F4CbqDeXN16zobSZPMeiUVbIHQrPUz77l5ZnLLJHlHbBby9psRTNlmPv1ylRLXRiYtZA7yENj2mIXOz4/RB06euW68zQXJeCJV5vndtfA6+8eCUXoCygNs8pKzYvJxfRlHnk4HlpvXrHpqK2StCN23aqRvBYGSR0tKaWSJs0C43vly0wP86abzwXbYrWeq44yB2Xc+lrkekgOow3/Djy2BzShR+DFBlViuU1rdCrbaXIOiXrkCwj8nzBF4Jmnq57TAwSOqUeWWtFgRR7k56LJE1aYAI9rLxZnM7JT6Idhzy67eZPUCYjlJIovOfSD6FEjCu2Dn4tzUQuvCYM7be5kWLm931t2Ek+j3v3+L1Q9JqqRZdaSe9VVLhMmsglEA4Zxu+SC5ZLC41Fw5aDBmiAPHDO2onC49q1ck4Fyo3Kuz67VN/248hrtcBxMr037mxFXpTJj5TjLXg63fbtW3RaHiVllrakTF0otWNJ+Sz4uVa5p2KU0KlQyCXHcHB8nybJEDPEi7OqDXj6dk0rtl7cKgnWOweUCrhkOC4IjoXRQqfayHVGQBK0rOjp4XYiL9kzoZFA70cVLmWpyJGnd0wQHBOTCJ0Ke7ihYifhckGMqw8fdwEqpPnEVrWB4EtA2bzHEBrgnQTBMTA4GCcpGRtv0uykrvJDCm2Kkve/f/3pqdOSzZQEDtccaaJnfxUfnNBAWboUoAuRB++RyYROhWIn9sJJLsoO0JvLsfvXxztaffhIFzf31IpFBnCOjLACCPw1eSIok0WIPDhlJnPdOSVuPCh159u0iCQVzNdGWjiHCxgNUc+Wn/IEToUxiCA4ZmYROrEesERIJARPyhAL4R1mY0aeBM/wAJ5DjcC5dxIiD06Z2YROFb01B8IqFXQppeIGXWEEPghOgVmFTgPFDro0oWCI6DEMVyNu8JKWBs4F54LgVJhd6GCM4DncjQfcRR8jTJRxlXnRJQhOjb0JnZiQiAXMjgH+LD7EAwiCY2evQgfHIvgQeLAUDiJ0IAVPe5hWOmR4LQhOnYMKHcig29Si5z13CDxYIkchdA4E2bGP1K3YlzTkWt0a/e9fb2bGjYnAB8F74OiELkFvj7/JmNYqF1OANxDCDoITEHoQBOOZ9KWWIAiOkxB6ECyAEHoQLIAQehAsgBB6ECyAEHoQLIAQehAsgP8Bh7Ylam4K1TwAAAAASUVORK5CYII="><b>Canteens</b></a>
+<nav class="tn" id="tn" aria-label="Main"></nav>
+<a class="ib" href="#cart" aria-label="Cart">🛒<span class="bdg" id="hb" hidden>0</span></a>
+</div></header>
+<div class="sc" id="sc"></div>
+<aside class="dr" id="dr" aria-label="Menu"></aside>
+<main id="app"></main>
+<div id="fc"></div>
+<nav class="bn" id="bn" aria-label="Bottom"></nav>
+<div class="sb" id="sb" hidden></div>
+<script>
+const D="Ball Canteen 1|🍛|Meals & biryani|10 min|Veg Meals,80,v,🍛;Chicken Biryani,120,n,🍗;Chapati Curry,60,v,🫓;Egg Fried Rice,90,n,🍳;Curd Rice,50,v,🥣\n"+
+"Ball Canteen 2|🥞|South Indian tiffins|8 min|Masala Dosa,55,v,🥞;Idli (3 pcs),40,v,⚪;Puri Bhaji,50,v,🫓;Medu Vada,40,v,🍩;Ven Pongal,45,v,🍚\n"+
+"Banglore Bakery|🥐|Puffs, buns & pastries|5 min|Veg Puff,25,v,🥟;Egg Puff,30,n,🥚;Chocolate Pastry,45,v,🍰;Cream Bun,30,v,🍞;Butter Cookies,35,v,🍪\n"+
+"Eat and Play|🍔|Burgers, pizza & fries|12 min|Veg Burger,70,v,🍔;Chicken Burger,99,n,🍔;French Fries,60,v,🍟;Veg Pizza,129,v,🍕;Grilled Sandwich,65,v,🥪\n"+
+"Pencil Canteen|☕|Tea, snacks & quick bites|5 min|Samosa,20,v,🥟;Mirchi Bajji,30,v,🌶️;Tea,12,v,☕;Coffee,15,v,☕;Veg Maggi,45,v,🍜\n"+
+"Juices and Milkshake|🥤|Fresh juices & shakes|6 min|Watermelon Juice,40,v,🍉;Mango Milkshake,70,v,🥭;Oreo Shake,80,v,🥤;Fresh Lime Soda,30,v,🍋;Chocolate Shake,75,v,🍫\n"+
+"K.K Food|🍜|Chinese & fast food|14 min|Veg Fried Rice,80,v,🍚;Gobi Manchurian,70,v,🥦;Paneer Noodles,90,v,🍜;Chicken Noodles,100,n,🍜;Chilli Chicken,120,n,🍗\n"+
+"RK Canteen|🍱|Full meals & curries|10 min|Mini Meals,70,v,🍱;Rajma Chapati,65,v,🫘;Chicken Curry Meals,110,n,🍛;Lemon Rice,45,v,🍋;Poori Curry,50,v,🫓";
+const C=D.split("\n").map(r=>{const p=r.split("|");return{n:p[0],e:p[1],t:p[2],w:p[3],i:p[4].split(";").map(s=>{const q=s.split(",");return{n:q[0],p:+q[1],v:q[2]=="v",e:q[3]}})}});
+const $=s=>document.getElementById(s),inr=n=>"₹"+n;
+let cart={},orders=[],veg=false,f={name:"",phone:"",pay:"upi",upi:""},err="",tt;
+try{orders=JSON.parse(localStorage.getItem("ac_orders")||"[]")}catch(e){}
+const save=()=>{try{localStorage.setItem("ac_orders",JSON.stringify(orders))}catch(e){}};
+const cnt=()=>Object.values(cart).reduce((a,b)=>a+b,0);
+const itm=k=>{const[c,i]=k.split("-");return{c:+c,...C[c].i[i]}};
+const tot=()=>Object.entries(cart).reduce((a,[k,q])=>a+itm(k).p*q,0);
+const toast=m=>{const s=$("sb");s.textContent=m;s.hidden=false;clearTimeout(tt);tt=setTimeout(()=>s.hidden=true,2200)};
+const ctl=k=>{const q=cart[k]||0;return q?`<div class="st"><button data-a="dec" data-k="${k}" aria-label="Remove one">−</button><b>${q}</b><button data-a="inc" data-k="${k}" aria-label="Add one">+</button></div>`:`<button class="add" data-a="inc" data-k="${k}">Add</button>`};
+const dot=v=>`<span class="vd ${v?"":"n"}" title="${v?"Veg":"Non-veg"}"></span>`;
+const cCard=(c,i)=>`<a class="cc" href="#c${i}" style="text-decoration:none;color:inherit"><span class="em">${c.e}</span><div><b>${c.n}</b><span class="mut">${c.t}</span><br><span class="open-pill">Open</span> <span class="mut">· about ${c.w}</span></div></a>`;
+const iCard=(c,i,x)=>{const k=c+"-"+i;return`<div class="it"><span class="em">${x.e}</span><div class="t"><b>${dot(x.v)}${x.n}</b><div class="pr">${inr(x.p)}</div><span class="mut">${C[c].n}</span></div>${ctl(k)}</div>`};
+function vHome(){const pop=[[0,1],[1,0],[3,0],[5,1],[4,0],[6,2]];
+return`<div class="hero"><div><h1>Order ahead.<br>Skip the queue.</h1><p>Pick a canteen, pay, and collect with your token.</p></div><span class="em" aria-hidden="true">🍽️</span></div>
+<h2>Canteens</h2><div class="grid">${C.map(cCard).join("")}</div>
+<h2>Popular right now</h2><div class="grid">${pop.map(([c,i])=>iCard(c,i,C[c].i[i])).join("")}</div>`}
+const vCanteens=()=>`<h1>Canteens</h1><p class="sub">${C.length} canteens on campus</p><div class="grid" style="margin-top:16px">${C.map(cCard).join("")}</div>`;
+function vMenu(ci){const c=C[ci];return`<a class="back" href="#canteens" style="display:inline-flex;align-items:center;text-decoration:none">← Canteens</a>
+<h1>${c.e} ${c.n}</h1><p class="sub">${c.t} · about ${c.w}</p>
+<div class="chips"><button class="chip ${veg?"on":""}" data-a="veg">Veg only</button></div>
+<div class="grid">${c.i.map((x,i)=>veg&&!x.v?"":iCard(ci,i,x)).join("")}</div>`}
+function vCart(){const ks=Object.keys(cart);if(!ks.length)return`<div class="empty"><div class="em">🛒</div><h1>Your cart is empty</h1><p class="sub">Add something tasty from a canteen.</p><br><a class="btn" href="#canteens" style="text-decoration:none">Browse canteens</a></div>`;
+const c=itm(ks[0]).c;
+return`<h1>Your cart</h1><p class="sub">${C[c].e} ${C[c].n}</p><div class="two" style="margin-top:16px"><div class="grid" style="grid-template-columns:1fr">${ks.map(k=>{const x=itm(k);return`<div class="it"><span class="em">${x.e}</span><div class="t"><b>${dot(x.v)}${x.n}</b><div class="pr">${inr(x.p*cart[k])}</div></div>${ctl(k)}</div>`}).join("")}</div>
+<div><div class="panel"><div class="row"><span>Items</span><span>${cnt()}</span></div><div class="row tot"><span>Total</span><span>${inr(tot())}</span></div></div><div class="ck"><a class="btn" href="#checkout" style="text-decoration:none">Go to checkout</a></div></div></div>`}
+function vCheck(){if(!cnt())return vCart();
+const P=[["upi","📱","UPI"],["card","💳","Debit / credit card"],["cash","💵","Cash at counter"]];
+return`<a class="back" href="#cart" style="display:inline-flex;align-items:center;text-decoration:none">← Cart</a><h1>Checkout</h1>
+<div class="two" style="margin-top:12px"><div class="panel"><h3>Your details</h3>
+<label for="nm">Name</label><input id="nm" type="text" autocomplete="name" value="${f.name}" data-f="name">
+<label for="ph">Mobile number</label><input id="ph" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" value="${f.phone}" data-f="phone">
+<h3 style="margin-top:20px">Payment</h3>${P.map(p=>`<button class="pay ${f.pay==p[0]?"on":""}" data-a="pay" data-k="${p[0]}"><span style="font-size:1.5rem">${p[1]}</span><b>${p[2]}</b></button>`).join("")}
+${f.pay=="upi"?`<label for="up">UPI ID</label><input id="up" type="text" inputmode="email" autocapitalize="none" placeholder="name@bank" value="${f.upi}" data-f="upi">`:""}
+${err?`<div class="err" role="alert">${err}</div>`:""}</div>
+<div><div class="panel"><h3>Summary</h3>${Object.keys(cart).map(k=>{const x=itm(k);return`<div class="row"><span>${cart[k]} × ${x.n}</span><span>${inr(x.p*cart[k])}</span></div>`}).join("")}<div class="row tot"><span>Total</span><span>${inr(tot())}</span></div></div>
+<div class="ck"><button class="btn" data-a="place">Pay ${inr(tot())} & get token</button></div></div></div>`}
+function vOrders(){if(!orders.length)return`<div class="empty"><div class="em">🧾</div><h1>No orders yet</h1><p class="sub">Your tokens will show up here.</p><br><a class="btn" href="#canteens" style="text-decoration:none">Order food</a></div>`;
+const SL={Pending:["Waiting for the canteen to accept",""],Preparing:["Preparing",""],"Ready for Pickup":["Ready for pickup","rd"],Completed:["Collected",""],Rejected:["Declined by the canteen",""]};
+return`<h1>Your orders</h1><div class="grid" style="margin-top:16px">${orders.map(o=>{const x=SL[o.s]||SL.Pending;return`<div class="tk"><div class="mut">${o.t?"Show this token at "+o.c:"Sent to "+o.c}</div><div class="n">${o.t?"A-"+o.t:"…"}</div><span class="st2 ${x[1]}">${x[0]}</span><p class="mut" style="margin:10px 0 0">${o.l}<br><b style="color:var(--ink)">${inr(o.a)}</b> · ${o.m}</p></div>`}).join("")}</div>`}
+const NAV=[["home","🏠","Home"],["canteens","🍴","Canteens"],["cart","🛒","Cart"],["orders","🧾","Orders"]];
+function route(){const h=location.hash.slice(1)||"home",m=/^c(\d)$/.exec(h);
+$("app").innerHTML=m&&C[m[1]]?vMenu(+m[1]):({home:vHome,canteens:vCanteens,cart:vCart,checkout:vCheck,orders:vOrders}[h]||vHome)();
+const act=m?"canteens":h=="checkout"?"cart":h,n=cnt();
+const bd=n?`<span class="bdg">${n}</span>`:"";
+$("bn").innerHTML=NAV.map(x=>`<a href="#${x[0]}" class="${act==x[0]?"on":""}"><span>${x[1]}</span>${x[2]}${x[0]=="cart"?bd:""}</a>`).join("");
+$("tn").innerHTML=NAV.map(x=>`<a href="#${x[0]}" class="${act==x[0]?"on":""}">${x[2]}</a>`).join("");
+$("dr").innerHTML=`<h3 style="margin-top:0">Menu</h3>`+NAV.map(x=>`<a href="#${x[0]}"><span>${x[1]}</span>${x[2]}</a>`).join("")+`<h3>Canteens</h3>`+C.map((c,i)=>`<a href="#c${i}"><span>${c.e}</span>${c.n}</a>`).join("");
+$("hb").hidden=!n;$("hb").textContent=n;
+$("fc").innerHTML=n&&!["cart","checkout"].includes(h)?`<a class="fc" href="#cart" style="text-decoration:none"><span>${n} item${n>1?"s":""} · ${inr(tot())}</span><span>View cart</span></a>`:"";
+document.body.classList.remove("open")}
+let placing=false;
+async function place(){const ks=Object.keys(cart),ph=f.phone.replace(/\D/g,"");
+if(f.name.trim().length<2)err="Enter your name.";else if(ph.length!=10)err="Enter a 10-digit mobile number.";else if(f.pay=="upi"&&!/^[\w.\-]+@[\w]+$/.test(f.upi.trim()))err="Enter a valid UPI ID, like name@bank.";else err="";
+if(err){route();return}
+if(placing)return;placing=true;
+const body={name:f.name.trim(),phone:ph,canteen:C[itm(ks[0]).c].n,method:f.pay,items:ks.map(k=>({name:itm(k).n,qty:cart[k],price:itm(k).p}))};
+try{const r=await fetch("/api/orders",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});if(!r.ok)throw 0;const d=await r.json();
+orders.unshift({id:d.id,t:null,c:body.canteen,l:ks.map(k=>cart[k]+" × "+itm(k).n).join(", "),a:tot(),m:{upi:"UPI",card:"Card",cash:"Cash at counter"}[f.pay],s:"Pending"});
+save();cart={};location.hash="orders";route();toast("Order sent. Waiting for the canteen to accept.")}
+catch(e){err="Could not place the order. Check your internet and try again.";route()}
+placing=false}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-a]");
+if(e.target.closest("#mb"))document.body.classList.add("open");
+if(e.target.id=="sc"||e.target.closest("#dr a"))document.body.classList.remove("open");
+if(!b)return;const a=b.dataset.a,k=b.dataset.k;
+if(a=="inc"){const keys=Object.keys(cart);if(keys.length&&itm(keys[0]).c!=itm(k).c){cart={};toast("Cart switched to "+C[itm(k).c].n)}cart[k]=(cart[k]||0)+1;route()}
+else if(a=="dec"){if(--cart[k]<=0)delete cart[k];route()}
+else if(a=="veg"){veg=!veg;route()}
+else if(a=="pay"){f.pay=k;route()}
+else if(a=="place")place()});
+document.addEventListener("input",e=>{const k=e.target.dataset&&e.target.dataset.f;if(k)f[k]=e.target.value});
+addEventListener("hashchange",()=>{route();scrollTo(0,0)});
+orders=orders.filter(o=>o.id);
+async function sync(){let ch=false;
+for(const o of orders.slice()){if(o.s==="Completed"||o.s==="Rejected")continue;
+try{const r=await fetch("/api/orders/"+o.id);
+if(r.status===404){orders=orders.filter(x=>x.id!==o.id);ch=true;continue}
+if(!r.ok)continue;const d=await r.json();
+if(d.status!==o.s||d.token!==o.t){
+if(o.s==="Pending"&&d.status==="Preparing")toast("Accepted! Your token is A-"+d.token);
+else if(d.status==="Ready for Pickup")toast("Token A-"+d.token+" is ready for pickup");
+else if(d.status==="Rejected")toast("Sorry, the canteen could not accept your order");
+o.s=d.status;o.t=d.token;ch=true}}catch(e){}}
+if(ch){save();if(location.hash==="#orders")route()}}
+setInterval(()=>{if(!document.hidden)sync()},4000);sync();
+route();
+</script></body></html>
